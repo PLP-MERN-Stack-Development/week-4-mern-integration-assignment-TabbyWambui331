@@ -1,22 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home.jsx';
-import Register from './Register.jsx';
-import Login from './Login.jsx';
-import PostDetails from './services/Postdetails.jsx';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import CreatePosts from './pages/CreatePosts';
 
+<Route path="/create" element={<CreatePost />} />
+// This is the main App component that sets up the routing for the application.
 function App() {
-  // You can use authService.login or authService.register here if needed
-
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 }
 
 export default App;
-
